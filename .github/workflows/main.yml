@@ -30,10 +30,13 @@ jobs:
       - name: paso5 - Ejecutar script
         run: python src/ingestion.py 
 
+      - name: Pull latest changes from remote
+        run: git pull origin main --rebase
+
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: entrega actividad 1
           commit_user_name: Jeisson Araque
-          commit_user_email: jeissona.raque@est.iudigital.edu.co
+          commit_user_email: jeisson.araque@est.iudigital.edu.co
           commit_author: Jeisson Araque <jeisson.araque@est.iudigital.edu.co>
