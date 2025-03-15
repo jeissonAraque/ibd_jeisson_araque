@@ -1,0 +1,38 @@
+Auditoría realizada el: 2025-03-14 19:12:40.323298
+
+Archivo original: D:\ING\sem3\bigdata\ibd_jeisson_araque\src\static\csv\ingestion.csv
+
+Total de filas antes de limpiar: 201
+
+Total de columnas: 9
+
+
+Comparación de valores nulos antes y después:
+
+high    4
+low     4
+vol     4
+last    0
+buy     0
+sell    0
+open    0
+date    4
+pair    4
+
+
+Valores nulos después de la limpieza:
+
+high    4
+low     4
+vol     4
+last    0
+buy     0
+sell    4
+open    0
+date    4
+pair    4
+
+
+Total de filas después de limpiar: 189
+
+Archivo limpio guardado en: D:\ING\sem3\bigdata\ibd_jeisson_araque\src\static\csv\ingestion_cleaned.csv

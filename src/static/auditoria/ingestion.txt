@@ -4,5 +4,5 @@
     "registros_archivo": 1,
     "columnas_archivo": 1,
     "archivo_db_existente": "Archivo creado correctamente",
-    "archivo_excel_existente": "Archivo creado correctamente"
+    "archivo_csv_existente": "Archivo creado correctamente"
 }

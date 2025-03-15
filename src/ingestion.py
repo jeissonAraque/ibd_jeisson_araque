@@ -128,7 +128,7 @@ class Ingestion:
         
         # Verificar existencia de los archivos generados
         db_path = f"{self.ruta_static}db/{nombre_archivo}.db"
-        excel_path = f"{self.ruta_static}xlsx/{nombre_archivo}.xlsx"
+        csv_path = f"{self.ruta_static}csv/{nombre_archivo}.csv"
         auditoria_txt_path = f"{self.ruta_static}auditoria/{nombre_archivo}.txt"
         
         def archivo_existe(ruta):
@@ -144,7 +144,7 @@ class Ingestion:
             "registros_archivo": registros_archivo,
             "columnas_archivo": columnas_archivo,
             "archivo_db_existente": archivo_existe(db_path),
-            "archivo_excel_existente": archivo_existe(excel_path)
+            "archivo_csv_existente": archivo_existe(csv_path)
         }
         
         # Guardar auditoría en archivo .txt
@@ -157,17 +157,17 @@ class Ingestion:
         print("Archivo JSON: {} registros, {} columnas".format(registros_archivo, columnas_archivo))
         print("Auditoría: ")
         print(f"Archivo DB: {auditoria_result['archivo_db_existente']}")
-        print(f"Archivo Excel: {auditoria_result['archivo_excel_existente']}")
+        print(f"Archivo csv: {auditoria_result['archivo_csv_existente']}")
         
         return (registros_datos == registros_archivo) and (columnas_datos == columnas_archivo)
     
-    def guardar_excel(self, datos={}, nombre_archivo="ingestion"):
-        """ Guarda los datos en un archivo Excel """
+    def guardar_csv(self, datos={}, nombre_archivo="ingestion"):
+        """ Guarda los datos en un archivo csv """
         
-        ruta_excel = f"{self.ruta_static}xlsx/{nombre_archivo}.xlsx"
+        ruta_csv = f"{self.ruta_static}csv/{nombre_archivo}.csv"
         
         if not isinstance(datos, dict) or "ticker" not in datos:
-            print("Formato de datos no válido para almacenamiento en Excel")
+            print("Formato de datos no válido para almacenamiento en csv")
             return
         
         ticker = datos["ticker"]
@@ -177,9 +177,9 @@ class Ingestion:
 
         df = pd.DataFrame([ticker])  
         
-        df.to_excel(ruta_excel, index=False)
+        df.to_csv(ruta_csv, index=False)
 
-        print(f"Datos guardados en excel en la ruta: {ruta_excel}")
+        print(f"Datos guardados en csv en la ruta: {ruta_csv}")
         
         
     
@@ -193,5 +193,5 @@ else:
     print("no se obtubo la consulta")
 ingestion.guardar_datos(datos=datos,nombre_archivo="ingestion")
 ingestion.guardar_db(datos=datos,nombre_archivo="ingestion")
-ingestion.guardar_excel(datos=datos,nombre_archivo="ingestion")
+ingestion.guardar_csv(datos=datos,nombre_archivo="ingestion")
 ingestion.validar_auditoria(datos=datos,nombre_archivo="ingestion")
