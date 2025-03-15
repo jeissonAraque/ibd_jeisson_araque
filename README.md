@@ -31,3 +31,34 @@ Para clonar el repositorio, ejecuta el siguiente comando en tu terminal:
 git clone https://github.com/jeissonAraque/ibd_jeisson_araque.git
 ```
 
+# EA2
+
+## Proceso de Limpieza de Datos y Auditoría
+
+Realizamos una limpieza exhaustiva del archivo `ingestion.csv` para preparar los datos para análisis. El proceso incluyó varios pasos clave:
+
+### Etapas del proceso
+
+**Nota**
+Antes de realizar la manipuilación de los datos fue necesario llenar el archivo fuente con datos con mala calidad por que originalmente el archivo contaba solo con un registro, el csv se cargó con 50 filas.
+
+1. **Carga inicial de datos**: Importamos `ingestion.csv` y documentamos sus características básicas (número de filas/columnas, tipos de datos y valores no nulos por columna).
+
+2. **Tratamiento de valores vacíos**: Convertimos todos los campos vacíos a `NaN` para facilitar su procesamiento posterior.
+
+3. **Normalización de datos numéricos**: Transformamos las columnas numéricas (`high`, `low`, `vol`, `last`, `buy`, `sell`, `open`, `date`) a su formato correcto, sustituyendo con `NaN` aquellos valores que no pudieron convertirse.
+
+4. **Eliminación de outliers**: Removimos registros con volumen (`vol`) superior a 1000 y precios negativos (`last`), ya que distorsionaban el análisis.
+
+5. **Imputación de valores faltantes**: Rellenamos los valores `NaN` restantes con la mediana de cada columna, manteniendo así la integridad del dataset sin perder registros.
+
+6. **Estandarización de fechas**: Convertimos la columna de fechas de timestamp Unix a formato legible, marcando como `NaT` aquellas fechas inconsistentes.
+
+7. **Documentación del proceso**: Generamos un reporte detallado (`cleaning_report.txt`) que incluye:
+   - Resumen con fecha y hora del proceso
+   - Estadísticas del dataset antes y después de la limpieza
+   - Análisis de cambios en valores nulos
+   - Acciones realizadas en cada etapa
+
+8. **Exportación de resultados**: Guardamos el dataset procesado como `ingestion_cleaned.csv`.
+
