@@ -29,3 +29,7 @@ jobs:
         run: pip install -e .
       - name: paso5 - Ejecutar script
         run: python src/ingestion.py 
+      - name: paso6 - Ejecutar script de limpeza
+        run: python src/cleaning.py 
+      - name: paso7 - Ejecutar script de auditoria de limpeza
+        run: python src/auditoria_limpieza.py
