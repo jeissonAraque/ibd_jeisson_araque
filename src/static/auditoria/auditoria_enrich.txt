@@ -1,0 +1,15 @@
+El archivo enriched_data.csv se encuentra en la ruta src/static/enriched_data.
+Auditoría de datos:
+
+Archivo enriched_data.csv tiene 13 columnas.
+Archivo cleaned_data.csv tiene 9 columnas.
+
+Nuevas columnas agregadas en enriched_data.csv:
+- fecha
+- Precio_Promedio
+- Variacion_Precio
+- Volumen_Total
+
+No hay valores faltantes en enriched_data.csv.
+
+Número de filas duplicadas en enriched_data.csv: 0

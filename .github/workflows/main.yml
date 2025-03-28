@@ -33,3 +33,5 @@ jobs:
         run: python src/cleaning.py 
       - name: paso7 - Ejecutar script de auditoria de limpeza
         run: python src/auditoria_limpieza.py
+      - name: paso8 - Ejecutar script de enriquecimiento de datos y auditoria
+        run: python src/enrichment.py
