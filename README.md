@@ -62,3 +62,32 @@ Antes de realizar la manipuilación de los datos fue necesario llenar el archivo
 
 8. **Exportación de resultados**: Guardamos el dataset procesado como `ingestion_cleaned.csv`.
 
+
+# EA3. Enriquecimiento de Datos en Plataforma de Big Data en la Nube
+
+## Proceso de Enriquecimiento de Datos
+Este script realiza el enriquecimiento de datos combinando información limpia con nuevos datos de mercado y genera un informe de auditoría del proceso.
+Funcionamiento
+El script ejecuta las siguientes funciones:
+1. Enriquecimiento de Datos (enrich_data)
+
+Carga dos conjuntos de datos:
+
+Datos limpios desde un archivo CSV (cleaned_data.csv)
+Nuevos datos de mercado desde un archivo Excel (market_data.xlsx)
+
+
+Normaliza el formato de fechas en ambos conjuntos de datos para asegurar compatibilidad
+Combina los datos mediante una operación de merge utilizando la fecha como clave
+Guarda el resultado en enriched_data.csv
+
+2. Auditoría del Proceso (auditoria_enrich)
+Genera un reporte de auditoría que verifica:
+
+La existencia del archivo de datos enriquecidos
+La cantidad de columnas en ambos conjuntos de datos
+Las nuevas columnas añadidas durante el enriquecimiento
+La presencia de valores faltantes en el conjunto final
+La existencia de filas duplicadas
+
+El reporte de auditoría se guarda en un archivo de texto para su revisión posterior.
